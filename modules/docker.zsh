@@ -31,3 +31,7 @@ plib_docker_container_count(){
 plib_docker_image_count(){
   command -v docker > /dev/null && echo -ne "$(docker images -q 2>/dev/null | wc -l | tr -d ' ')"
 }
+
+plib_docker_st(){
+  [[ -f "/.dockerenv" ]] && echo -n "[D]"
+}
